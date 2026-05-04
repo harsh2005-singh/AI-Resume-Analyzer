@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
+const resumeRoutes = require('./routes/resume');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 // Routes AFTER middleware
 app.use('/api/auth', authRoutes);
+app.use('/api/resume', resumeRoutes);
 
 // Test route
 app.get('/', (req, res) => {
