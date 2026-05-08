@@ -138,4 +138,17 @@ router.get('/history', protect, async (req, res) => {
   }
 });
 
+// Get single analysis by ID
+router.get('/analysis/:id', protect, async (req, res) => {
+  try {
+    const analysis = await Analysis.findById(req.params.id);
+    if (!analysis) {
+      return res.status(404).json({ message: 'Analysis not found' });
+    }
+    res.json(analysis);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
