@@ -16,7 +16,7 @@ function Results() {
     const fetchAnalysis = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/resume/analysis/${id}`,
+          `https://ats-pro-backend.onrender.com/api/resume/analysis/${id}`,
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setAnalysis(res.data);
@@ -88,7 +88,7 @@ function Results() {
         </button>
         <button
           onClick={() => window.open(
-            `http://localhost:5000/api/resume/download/${id}?token=${token}`,
+            `https://ats-pro-backend.onrender.com/api/resume/download/${id}?token=${token}`,
             '_blank'
           )}
           style={{ ...styles.button, backgroundColor: '#22c55e' }}>
