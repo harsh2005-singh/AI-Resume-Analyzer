@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -14,16 +14,16 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', {
         email,
         password
       });
       login(res.data.token, res.data.user);
+      toast.success('Welcome back!');
       navigate('/upload');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      toast.error(err.response?.data?.message || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -34,8 +34,6 @@ function Login() {
       <div style={styles.card}>
         <h2 style={styles.title}>Welcome Back 👋</h2>
         <p style={styles.subtitle}>Login to analyze your resume</p>
-
-        {error && <p style={styles.error}>{error}</p>}
 
         <form onSubmit={handleSubmit}>
           <div style={styles.inputGroup}>
@@ -101,15 +99,6 @@ const styles = {
     color: '#6b7280',
     marginBottom: '28px',
     fontSize: '14px'
-  },
-  error: {
-    color: '#ef4444',
-    textAlign: 'center',
-    marginBottom: '16px',
-    fontSize: '14px',
-    backgroundColor: '#2d1515',
-    padding: '10px',
-    borderRadius: '8px'
   },
   inputGroup: {
     marginBottom: '20px'

@@ -1,3 +1,4 @@
+import Landing from './pages/Landing';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
@@ -6,6 +7,7 @@ import Register from './pages/Register';
 import Upload from './pages/Upload';
 import Results from './pages/Results';
 import History from './pages/History';
+import { Toaster } from 'react-hot-toast';
 
 // Protected route - only logged in users can access
 const ProtectedRoute = ({ children }) => {
@@ -18,8 +20,9 @@ function App() {
     <AuthProvider>
       <Router>
         <Navbar />
+        <Toaster position="top-right" />
         <Routes>
-          <Route path="/" element={<Navigate to="/upload" />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/upload" element={
