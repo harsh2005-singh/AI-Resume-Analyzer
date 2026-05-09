@@ -88,23 +88,28 @@ const styles = {
   container: {
     maxWidth: '800px',
     margin: '0 auto',
-    padding: '24px'
+    padding: '24px',
+    backgroundColor: '#0f0f1a',
+    minHeight: '100vh'
   },
   center: {
     textAlign: 'center',
     padding: '40px',
-    fontSize: '18px'
+    fontSize: '18px',
+    color: '#e2e8f0'
   },
   title: {
-    color: '#1a1a2e',
-    marginBottom: '24px'
+    color: '#e2e8f0',
+    marginBottom: '24px',
+    fontSize: '24px'
   },
   empty: {
     textAlign: 'center',
     padding: '40px',
-    backgroundColor: 'white',
-    borderRadius: '12px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
+    backgroundColor: '#13131f',
+    borderRadius: '16px',
+    border: '1px solid #1e1e2e',
+    color: '#6b7280'
   },
   list: {
     display: 'flex',
@@ -112,10 +117,11 @@ const styles = {
     gap: '12px'
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#13131f',
     borderRadius: '12px',
     padding: '20px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+    border: '1px solid #1e1e2e',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'
@@ -129,26 +135,27 @@ const styles = {
     gap: '16px'
   },
   date: {
-    color: '#666',
+    color: '#6b7280',
     fontSize: '13px',
     marginBottom: '6px'
   },
   jobDesc: {
-    color: '#333',
+    color: '#9ca3af',
     fontSize: '14px'
   },
   score: {
-    fontSize: '20px',
+    fontSize: '22px',
     fontWeight: 'bold'
   },
   button: {
-    padding: '8px 16px',
-    backgroundColor: '#4f46e5',
+    padding: '8px 18px',
+    background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
     color: 'white',
     border: 'none',
-    borderRadius: '6px',
+    borderRadius: '8px',
     cursor: 'pointer',
-    fontSize: '14px'
+    fontSize: '14px',
+    fontWeight: '500'
   }
 };
 

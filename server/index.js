@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
@@ -7,9 +8,24 @@ const resumeRoutes = require('./routes/resume');
 
 const app = express();
 
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: { message: 'Too many requests, please try again later.' }
+});
+
+const analyzeLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  max: 10,
+  message: { message: 'Analysis limit reached, please try again after an hour.' }
+});
+
 // Middleware FIRST
 app.use(express.json());
 app.use(cors());
+app.use(limiter);
+app.use('/api/resume/analyze', analyzeLimiter);
 
 // Routes AFTER middleware
 app.use('/api/auth', authRoutes);

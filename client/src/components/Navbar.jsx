@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <nav style={styles.nav}>
       <Link to="/" style={styles.logo}>
-        🤖 AI Resume Analyzer
+        🧠 ATS Pro AI
       </Link>
 
       <div style={styles.links}>
@@ -43,37 +43,45 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '16px 32px',
-    backgroundColor: '#1a1a2e',
-    color: 'white'
+    backgroundColor: '#13131f',
+    borderBottom: '1px solid #1e1e2e',
+    boxShadow: '0 2px 20px rgba(0,0,0,0.3)'
   },
   logo: {
-    color: 'white',
+    color: '#818cf8',
     textDecoration: 'none',
-    fontSize: '20px',
-    fontWeight: 'bold'
+    fontSize: '22px',
+    fontWeight: 'bold',
+    letterSpacing: '0.5px'
   },
   links: {
     display: 'flex',
     alignItems: 'center',
-    gap: '20px'
+    gap: '24px'
   },
   link: {
-    color: 'white',
+    color: '#e2e8f0',
     textDecoration: 'none',
-    fontSize: '15px'
+    fontSize: '15px',
+    fontWeight: '500',
+    padding: '6px 12px',
+    borderRadius: '6px',
+    transition: 'all 0.2s ease'
   },
   welcome: {
     color: '#a5b4fc',
-    fontSize: '14px'
+    fontSize: '14px',
+    fontWeight: '500'
   },
   button: {
     backgroundColor: '#ef4444',
     color: 'white',
     border: 'none',
-    padding: '8px 16px',
-    borderRadius: '6px',
+    padding: '8px 18px',
+    borderRadius: '8px',
     cursor: 'pointer',
-    fontSize: '14px'
+    fontSize: '14px',
+    fontWeight: '500'
   }
 };
 

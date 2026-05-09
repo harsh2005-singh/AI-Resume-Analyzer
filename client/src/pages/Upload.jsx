@@ -97,64 +97,78 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '90vh',
-    backgroundColor: '#f0f2f5',
+    backgroundColor: '#0f0f1a',
     padding: '20px'
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#13131f',
     padding: '40px',
-    borderRadius: '12px',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+    borderRadius: '16px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
     width: '100%',
-    maxWidth: '600px'
+    maxWidth: '620px',
+    border: '1px solid #1e1e2e'
   },
   title: {
     textAlign: 'center',
     marginBottom: '8px',
-    color: '#1a1a2e'
+    color: '#e2e8f0',
+    fontSize: '26px'
   },
   subtitle: {
     textAlign: 'center',
-    color: '#666',
-    marginBottom: '24px'
+    color: '#6b7280',
+    marginBottom: '28px',
+    fontSize: '14px'
   },
   error: {
-    color: 'red',
+    color: '#ef4444',
     textAlign: 'center',
-    marginBottom: '16px'
+    marginBottom: '16px',
+    fontSize: '14px',
+    backgroundColor: '#2d1515',
+    padding: '10px',
+    borderRadius: '8px'
   },
   inputGroup: {
-    marginBottom: '20px'
+    marginBottom: '24px'
   },
   fileInput: {
     width: '100%',
     marginTop: '8px',
-    padding: '10px',
+    padding: '14px',
     border: '2px dashed #4f46e5',
-    borderRadius: '8px',
+    borderRadius: '10px',
     cursor: 'pointer',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    backgroundColor: '#1a1a2e',
+    color: '#a5b4fc'
   },
   textarea: {
     width: '100%',
-    padding: '10px',
+    padding: '12px',
     marginTop: '8px',
-    borderRadius: '8px',
-    border: '1px solid #ddd',
+    borderRadius: '10px',
+    border: '1px solid #374151',
     fontSize: '14px',
     resize: 'vertical',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    backgroundColor: '#1e1e2e',
+    color: '#e2e8f0',
+    lineHeight: '1.6'
   },
   button: {
     width: '100%',
     padding: '14px',
-    backgroundColor: '#4f46e5',
+    background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
     color: 'white',
     border: 'none',
-    borderRadius: '8px',
+    borderRadius: '10px',
     fontSize: '16px',
     cursor: 'pointer',
-    marginTop: '8px'
+    marginTop: '8px',
+    fontWeight: '600',
+    letterSpacing: '0.5px'
   }
 };
 

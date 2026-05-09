@@ -127,135 +127,146 @@ function Results() {
 }
 
 const styles = {
-    container: {
-        maxWidth: '800px',
-        margin: '0 auto',
-        padding: '24px',
-    },
-    center: {
-        textAlign: 'center',
-        padding: '40px',
-        fontSize: '18px'
-    },
-    card: {
-        backgroundColor: 'white',
-        borderRadius: '12px',
-        padding: '24px',
-        marginBottom: '20px',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
-    },
-    title: {
-        textAlign: 'center',
-        color: '#1a1a2e',
-        marginBottom: '20px'
-    },
-    scoreCircle: {
-        textAlign: 'center',
-        margin: '20px 0'
-    },
-    scoreNumber: {
-        fontSize: '80px',
-        fontWeight: 'bold'
-    },
-    scoreLabel: {
-        fontSize: '24px',
-        color: '#666'
-    },
-    scoreText: {
-        textAlign: 'center',
-        color: '#666',
-        fontSize: '16px'
-    },
-    sectionTitle: {
-        color: '#1a1a2e',
-        marginBottom: '16px'
-    },
-    sectionsGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '16px'
-    },
-    sectionCard: {
-        border: '1px solid #e5e7eb',
-        borderRadius: '8px',
-        padding: '16px'
-    },
-    sectionHeader: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginBottom: '12px'
-    },
-    sectionName: {
-        fontWeight: 'bold',
-        color: '#1a1a2e',
-        textTransform: 'capitalize'
-    },
-    sectionScore: {
-        fontWeight: 'bold',
-        fontSize: '16px'
-    },
-    missingTitle: {
-        color: '#ef4444',
-        fontWeight: 'bold',
-        marginBottom: '6px',
-        fontSize: '13px'
-    },
-    tagContainer: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '6px',
-        marginBottom: '10px'
-    },
-    tag: {
-        backgroundColor: '#fee2e2',
-        color: '#ef4444',
-        padding: '2px 8px',
-        borderRadius: '20px',
-        fontSize: '12px'
-    },
-    suggestion: {
-        fontSize: '13px',
-        color: '#555',
-        marginBottom: '4px'
-    },
-    suggestionItem: {
-        display: 'flex',
-        gap: '12px',
-        alignItems: 'flex-start',
-        marginBottom: '12px'
-    },
-    suggestionNumber: {
-        backgroundColor: '#4f46e5',
-        color: 'white',
-        borderRadius: '50%',
-        width: '24px',
-        height: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '12px',
-        flexShrink: 0
-    },
-    suggestionText: {
-        color: '#444',
-        fontSize: '14px',
-        margin: 0
-    },
-    buttonRow: {
-        display: 'flex',
-        gap: '12px',
-        justifyContent: 'center',
-        marginTop: '8px'
-    },
-    button: {
-        padding: '12px 24px',
-        backgroundColor: '#4f46e5',
-        color: 'white',
-        border: 'none',
-        borderRadius: '8px',
-        fontSize: '15px',
-        cursor: 'pointer'
-    }
+  container: {
+    maxWidth: '800px',
+    margin: '0 auto',
+    padding: '24px',
+    backgroundColor: '#0f0f1a',
+    minHeight: '100vh'
+  },
+  center: {
+    textAlign: 'center',
+    padding: '40px',
+    fontSize: '18px',
+    color: '#e2e8f0'
+  },
+  card: {
+    backgroundColor: '#13131f',
+    borderRadius: '16px',
+    padding: '28px',
+    marginBottom: '20px',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+    border: '1px solid #1e1e2e'
+  },
+  title: {
+    textAlign: 'center',
+    color: '#e2e8f0',
+    marginBottom: '20px',
+    fontSize: '24px'
+  },
+  scoreCircle: {
+    textAlign: 'center',
+    margin: '20px 0'
+  },
+  scoreNumber: {
+    fontSize: '90px',
+    fontWeight: 'bold'
+  },
+  scoreLabel: {
+    fontSize: '28px',
+    color: '#6b7280'
+  },
+  scoreText: {
+    textAlign: 'center',
+    color: '#6b7280',
+    fontSize: '16px',
+    marginTop: '8px'
+  },
+  sectionTitle: {
+    color: '#a5b4fc',
+    marginBottom: '16px',
+    fontSize: '18px'
+  },
+  sectionsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '16px'
+  },
+  sectionCard: {
+    border: '1px solid #1e1e2e',
+    borderRadius: '10px',
+    padding: '16px',
+    backgroundColor: '#0f0f1a'
+  },
+  sectionHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: '12px'
+  },
+  sectionName: {
+    fontWeight: 'bold',
+    color: '#e2e8f0',
+    textTransform: 'capitalize'
+  },
+  sectionScore: {
+    fontWeight: 'bold',
+    fontSize: '16px'
+  },
+  missingTitle: {
+    color: '#ef4444',
+    fontWeight: 'bold',
+    marginBottom: '6px',
+    fontSize: '13px'
+  },
+  tagContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '6px',
+    marginBottom: '10px'
+  },
+  tag: {
+    backgroundColor: '#2d1515',
+    color: '#ef4444',
+    padding: '3px 10px',
+    borderRadius: '20px',
+    fontSize: '12px'
+  },
+  suggestion: {
+    fontSize: '13px',
+    color: '#9ca3af',
+    marginBottom: '4px'
+  },
+  suggestionItem: {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'flex-start',
+    marginBottom: '14px'
+  },
+  suggestionNumber: {
+    background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+    color: 'white',
+    borderRadius: '50%',
+    width: '26px',
+    height: '26px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '12px',
+    flexShrink: 0
+  },
+  suggestionText: {
+    color: '#d1d5db',
+    fontSize: '14px',
+    margin: 0,
+    lineHeight: '1.6'
+  },
+  buttonRow: {
+    display: 'flex',
+    gap: '12px',
+    justifyContent: 'center',
+    marginTop: '8px',
+    flexWrap: 'wrap'
+  },
+  button: {
+    padding: '12px 24px',
+    background: 'linear-gradient(135deg, #4f46e5, #7c3aed)',
+    color: 'white',
+    border: 'none',
+    borderRadius: '8px',
+    fontSize: '15px',
+    cursor: 'pointer',
+    fontWeight: '500'
+  }
 };
 
 export default Results;
