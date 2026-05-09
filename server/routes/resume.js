@@ -151,4 +151,79 @@ router.get('/analysis/:id', protect, async (req, res) => {
   }
 });
 
+// Download analysis as PDF
+router.get('/download/:id', async (req, res) => {
+  try {
+    const token = req.query.token;
+    const jwt = require('jsonwebtoken');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.userId = decoded.userId;
+
+    const analysis = await Analysis.findById(req.params.id);
+    if (!analysis) {
+      return res.status(404).json({ message: 'Analysis not found' });
+    }
+
+    const PDFDocument = require('pdfkit');
+    const doc = new PDFDocument();
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=analysis-${req.params.id}.pdf`);
+
+    doc.pipe(res);
+
+    // Title
+    doc.fontSize(24).font('Helvetica-Bold').text('AI Resume Analysis Report', { align: 'center' });
+    doc.moveDown();
+    doc.fontSize(12).font('Helvetica').text(`Generated on: ${new Date().toLocaleDateString()}`, { align: 'center' });
+    doc.moveDown(2);
+
+    // Overall Score
+    doc.fontSize(18).font('Helvetica-Bold').text('Overall ATS Score', { underline: true });
+    doc.moveDown(0.5);
+    doc.fontSize(36).fillColor(
+      analysis.overallScore >= 75 ? 'green' :
+      analysis.overallScore >= 50 ? 'orange' : 'red'
+    ).text(`${analysis.overallScore}/100`, { align: 'center' });
+    doc.fillColor('black').moveDown(2);
+
+    // ATS Section Breakdown
+    doc.fontSize(18).font('Helvetica-Bold').text('ATS Section Breakdown', { underline: true });
+    doc.moveDown(0.5);
+
+    const sections = analysis.atsSections;
+    Object.entries(sections).forEach(([key, value]) => {
+      doc.fontSize(14).font('Helvetica-Bold').text(
+        `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value.score}/100`
+      );
+
+      if (value.missing && value.missing.length > 0) {
+        doc.fontSize(11).font('Helvetica').fillColor('red')
+          .text(`Missing: ${value.missing.join(', ')}`);
+        doc.fillColor('black');
+      }
+
+      if (value.suggestions && value.suggestions.length > 0) {
+        value.suggestions.forEach(s => {
+          doc.fontSize(11).font('Helvetica').text(`• ${s}`);
+        });
+      }
+      doc.moveDown();
+    });
+
+    // Top Suggestions
+    doc.fontSize(18).font('Helvetica-Bold').text('Top Suggestions', { underline: true });
+    doc.moveDown(0.5);
+    analysis.topSuggestions.forEach((s, i) => {
+      doc.fontSize(12).font('Helvetica').text(`${i + 1}. ${s}`);
+      doc.moveDown(0.5);
+    });
+
+    doc.end();
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
