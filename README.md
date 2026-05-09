@@ -3,7 +3,7 @@
 An AI-powered resume analyzer that scores your resume against job descriptions using Google's Gemini AI, providing detailed ATS compatibility analysis and improvement suggestions.
 
 ## 🌐 Live Demo
-> Coming soon after deployment
+[https://ai-resume-analyzer-ecru-omega.vercel.app](https://ai-resume-analyzer-ecru-omega.vercel.app)
 
 ## ✨ Features
 
