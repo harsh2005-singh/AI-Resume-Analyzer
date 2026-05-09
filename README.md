@@ -53,9 +53,13 @@ npm install
 ```
 
 3. **Create `server/.env` file**
+
 PORT=5000
+
 MONGODB_URI=your_mongodb_uri
+
 JWT_SECRET=your_jwt_secret
+
 GEMINI_API_KEY=your_gemini_api_key
 
 4. **Start Backend**
