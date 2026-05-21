@@ -101,38 +101,36 @@ http://localhost:5173
 
 ## 📁 Project Structure
 
+```
 AI-Resume-Analyzer/
 ├── client/                     # React Frontend (Vite)
 │   └── src/
 │       ├── components/
-│       │   ├── Navbar.jsx      # Navigation bar
-│       │   └── ScoreCard.jsx   # ATS section score card
+│       │   ├── Navbar.jsx      
+│       │   └── ScoreCard.jsx   
 │       ├── pages/
-│       │   ├── Landing.jsx     # Landing page
-│       │   ├── Guest.jsx       # Try without login
-│       │   ├── Login.jsx       # Login page
-│       │   ├── Register.jsx    # Register page
-│       │   ├── Upload.jsx      # Resume upload page
-│       │   ├── Results.jsx     # Analysis results page
-│       │   └── History.jsx     # Past analyses page
+│       │   ├── Landing.jsx     
+│       │   ├── Guest.jsx       
+│       │   ├── Login.jsx       
+│       │   ├── Register.jsx    
+│       │   ├── Upload.jsx      
+│       │   ├── Results.jsx     
+│       │   └── History.jsx     
 │       └── context/
-│           └── AuthContext.jsx # Global auth state
-│
-├── server/                     # Node.js + Express Backend
+│           └── AuthContext.jsx 
+├── server/                     
 │   ├── config/
-│   │   └── db.js               # MongoDB connection
+│   │   └── db.js               
 │   ├── models/
-│   │   ├── User.js             # User schema
-│   │   └── Analysis.js         # Analysis schema
+│   │   ├── User.js             
+│   │   └── Analysis.js         
 │   ├── routes/
-│   │   ├── auth.js             # Register/Login routes
-│   │   └── resume.js           # Resume upload/analyze routes
+│   │   ├── auth.js             
+│   │   └── resume.js           
 │   ├── middleware/
-│   │   └── authMiddleware.js   # JWT verification
-│   └── index.js                # Express server entry point
-│
+│   │   └── authMiddleware.js   
+│   └── index.js                
 └── README.md
-
 ---
 
 ## 🔒 Security Features
