@@ -23,6 +23,11 @@ function Landing() {
             🚀 Get Started Free
           </button>
           <button
+            onClick={() => navigate('/guest')}
+            style={styles.secondaryButton}>
+            ⚡ Try Without Login
+          </button>
+          <button
             onClick={() => navigate('/login')}
             style={styles.secondaryButton}>
             Login
