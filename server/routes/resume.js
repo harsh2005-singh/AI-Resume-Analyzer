@@ -50,6 +50,22 @@ router.post('/upload', protect, upload.single('resume'), async (req, res) => {
   }
 });
 
+// Guest upload - no auth required
+router.post('/upload-guest', upload.single('resume'), async (req, res) => {
+  try {
+    const dataBuffer = fs.readFileSync(req.file.path);
+    const pdfData = await pdfParse(dataBuffer);
+    fs.unlinkSync(req.file.path);
+
+    res.json({
+      message: 'PDF uploaded and text extracted successfully!',
+      text: pdfData.text
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Analyze resume against job description
 router.post('/analyze', protect, async (req, res) => {
   try {
@@ -220,6 +236,40 @@ router.get('/download/:id', async (req, res) => {
     });
 
     doc.end();
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Guest analyze - no auth required
+router.post('/guest-analyze', async (req, res) => {
+  try {
+    const { resumeText, jobDescription } = req.body;
+
+    const model = genAI.getGenerativeModel({ model: 'gemini-3-flash-preview' });
+
+    const prompt = `
+      You are an ATS expert.
+      Analyze this resume against the job description and return ONLY a JSON object.
+
+      Resume: ${resumeText}
+      Job Description: ${jobDescription}
+
+      Return this exact JSON:
+      {
+        "overallScore": <number 0-100>,
+        "topSuggestions": [<top 3 improvement suggestions>],
+        "missingKeywords": [<top 5 missing keywords>]
+      }
+    `;
+
+    const result = await model.generateContent(prompt);
+    const response = result.response.text();
+    const cleaned = response.replace(/```json|```/g, '').trim();
+    const analysis = JSON.parse(cleaned);
+
+    res.json(analysis);
 
   } catch (error) {
     res.status(500).json({ message: error.message });

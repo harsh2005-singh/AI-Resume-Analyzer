@@ -8,6 +8,7 @@ import Upload from './pages/Upload';
 import Results from './pages/Results';
 import History from './pages/History';
 import { Toaster } from 'react-hot-toast';
+import Guest from './pages/Guest';
 
 // Protected route - only logged in users can access
 const ProtectedRoute = ({ children }) => {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/history" element={
             <ProtectedRoute><History /></ProtectedRoute>
           } />
+          <Route path="/guest" element={<Guest />} />
         </Routes>
       </Router>
     </AuthProvider>
