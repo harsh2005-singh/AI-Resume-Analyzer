@@ -100,6 +100,7 @@ http://localhost:5173
 ---
 
 ## 📁 Project Structure
+
 AI-Resume-Analyzer/
 ├── client/                     # React Frontend (Vite)
 │   └── src/
